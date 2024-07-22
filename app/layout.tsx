@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import Header from "./components/layout/header";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = localFont({
+  src: "../public/fonts/AeonikProTRIAL-Regular.otf",
+  // weight: ["100", "200", "300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${font.className}`}>{children}</body>
     </html>
   );
 }
